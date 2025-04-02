@@ -1,1 +1,14 @@
-README.md
+sequenceDiagram
+    participant user
+    participant browser
+    participant server
+
+    user->>browser: Enter note text and click "Submit"
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    activate server
+    server-->>browser: 201 Created + JSON {"message":"note created"}
+    deactivate server
+    browser-->>user: Update the note list on the screen (no full reload)
+
+### Screenshot
+![new_diagram](./assets/new_diagram.png)
